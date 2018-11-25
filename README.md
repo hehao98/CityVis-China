@@ -4,10 +4,11 @@ This repository contains an information visualization of 20 major cities in Chin
 
 ## Dataset
 
-All the data are collected from the Internet and are not guaranteed to be accurate. Collected data types are summarized in the following table. For raw data, see `data.csv` in project root.
+All the data are collected from the Internet and are not guaranteed to be accurate. All available data types are summarized in the following table. For raw data, see `data.csv` in project root.
 
 | Data                        | Type        | Metric                | Source           |
 | --------------------------- | ----------- | --------------------- | ---------------- |
+| City Overall Rank        | Ordinal Num | /                    | Baidu |
 | Chinese Name                | String      | /                     | Common Knowledge |
 | English Name                | String      | /                     | Common Knowledge |
 | Location                    | 2D Vector   | (N,E)                 | Baidu            |
@@ -21,10 +22,7 @@ All the data are collected from the Internet and are not guaranteed to be accura
 | Hypertension Incidence      | Ratio       | /                     | Baidu            |
 | Zongzi(粽子) Perference     | Nominal     | {Salty, Sweet}        | Common Knowledge |
 | Doufunao(豆腐脑) Perference | Nominal     | {Salty, Sweet, Spicy} | Common Knowledge |
-| High-Speed Railway Network  | Graph       | /                     |                  |
-|                             |             |                       |                  |
-
-
+| High-Speed Railway Network  | Graph       | /                     | Baidu |
 
 ## Methods
 
