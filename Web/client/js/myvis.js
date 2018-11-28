@@ -74,13 +74,36 @@
 
 // ------------------- 维度选择模块 Start ------------------- 
 {
-    var value_to_dims = {
-        "1":"Area", 
-        "2":"Population", 
-        "3":"GDP", 
-        "4":"Income"
-    };
+    var value_to_dims = [];
     var scatterplot_axes = {"x": null, "y": null};
+
+    function initAxes(d) {
+        if (value_to_dims.length > 0) {
+            return; // already initialized
+        }
+
+        // extract numerical data dimensions
+        // and generate selectors
+        var i = 0;
+        for (var v_dim in d[0]) {
+            //console.log(v_dim);
+            if (dim_type[v_dim] == "num") {
+                value_to_dims[i] = v_dim;
+                var option_string = "<option value=" + i.toString() + ">" + v_dim + "</option>\n";
+                if (i == 1) {
+                    option_string = "<option value=" + i.toString() 
+                        + " selected=\"selected\""+ ">" + v_dim + "</option>\n"
+                }
+                $(".axis_selector #x_axis")
+                    .append(option_string);
+                $(".axis_selector #y_axis")
+                    .append(option_string);
+                i++;
+            }
+        }
+
+        console.log("Value To Dims: " + value_to_dims);
+    }
 
     function getAxes() { 
         var x_value = $("#x_axis").val(), y_value = $("#y_axis").val();
@@ -88,10 +111,11 @@
         scatterplot_axes.y = value_to_dims[y_value];
     };
 
-    window.onload = function(){
+    window.onload = function() {
         $(".axis_selector select") 
-        .on("change", function(){ 
-            if(data != undefined){
+        .on("change", function() { 
+            if(data != undefined) {
+                initAxes(data);
                 getAxes();
                 drawScatterPlot(data);
             }
@@ -133,14 +157,14 @@
                             var x_axis = d3.svg.axis().scale(x_scale).orient("bottom"),
               y_axis = d3.svg.axis().scale(y_scale).orient("left");           // 生成数轴
         if(state == "new"){                                                                 // 如果“new”，则创建数轴的图元容器
-            d3.select("#mySVG").append("g")
+            d3.select("#ScatterplotSVG").append("g")
             .attr("class", "dataAxis")
             .attr("id", "x_axis_g")
                 .attr("transform", "translate(" + [0, sc_margin + sc_length] + ")")             // 数轴平移
                 .append("g").attr("class", "axisLegend")
                 .attr("transform", "translate(" + [sc_margin + sc_length - 50, 40] + ")")     // 平移数轴名称
                 .append("text");
-                d3.select("#mySVG").append("g")
+                d3.select("#ScatterplotSVG").append("g")
                 .attr("class", "dataAxis")
                 .attr("id", "y_axis_g")
                 .attr("transform", "translate(" + [sc_margin, 0] + ")")
@@ -200,8 +224,9 @@
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return "<p>" + x_dim + ": " + d[x_dim] + "</p>" + 
-            "<p>" + y_dim + ": " + d[y_dim] + "</p>" ;
+            return "<p> Name: "+ d["ChineseName"] + "(" + d["EnglishName"] +")</p>"
+                + "<p>" + x_dim + ": " + d[x_dim] + "</p>"
+                + "<p>" + y_dim + ": " + d[y_dim] + "</p>" ;
                        });                                                        // 设置 tooltip 的内容
         v_points.call(tip);
         v_points.select(".foreground")
@@ -211,7 +236,7 @@
 
     function drawScatterPlot(d){                                // drawScatterPlot：渲染模块的主函数
         if(state == "new"){
-            d3.select("#mySVG")
+            d3.select("#ScatterplotSVG")
             .attr("width", svg_length)
             .attr("height", svg_length)                                // 设置 svg 的长宽
             .append("g")
@@ -233,6 +258,7 @@
     var t_df = $.Deferred(); // jquery提供的“定时器”，用于同步操作
     readData(t_df);
     t_df.done(function(){ // 定时器.done：定义“定时器释放”后的后续操作
+        initAxes(data);
         getAxes();
         drawScatterPlot(data);
     });

@@ -3,7 +3,7 @@ div {
 }
 
 div.selectors, div.axis_selector, div.headline, div#svgContainer {
-    text-align: center;/* div 内元素居中 */
+    text-align: left;/* div 内元素居中 */
 }
 /*“标签名+类名”选择器：选中“带有某个类名”的“某些标签”
 不同选择器之间用逗号隔开，从而应用同一个CSS规则

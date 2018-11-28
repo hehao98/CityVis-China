@@ -7,31 +7,27 @@
 </head>
 <body>
     <div class="headline">
-        <h1>Scatterplot for City Data</h1>
+        <h1>City Data Visualization</h1>
+    </div>
+
+    <div class="subtitle">
+        <h2>1. Individual Scatterplots for Two Numerical Data Dimensions</h2>
     </div>
     <div class="selectors">
         <div class="axis_selector">
             Choose x axis: 
             <select id="x_axis"><!--下拉栏组件，用于选择 x 轴-->
-                <option value="1" selected="selected">Area</option>
-                <option value="2">Population</option>
-                <option value="3">GDP</option>
-                <option value="4">Income</option>
             </select>
         </div>
         <div class="axis_selector">
             Choose y axis: 
             <select id="y_axis"><!--下拉栏组件，用于选择 y 轴-->
-                <option value="1">Area</option>
-                <option value="2" selected="selected">Population</option>
-                <option value="3">GDP</option>
-                <option value="4">Income</option>
             </select>
         </div>
     </div>
 
-    <div id="svgContainer">
-        <svg id="mySVG">
+    <div id="ScatterplotContainer">
+        <svg id="ScatterplotSVG">
         </svg>
     </div>
 
@@ -40,4 +36,3 @@
     <script type="text/javascript" src="js/libs/d3/d3-tip.js"></script>
     <script type="text/javascript" src="js/myvis.js"></script>
     <!--注意引用库文件的顺序：如果 库A 依赖于 库B，则必须先加载 B 再加载 A，否则会出错-->
-    
