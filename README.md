@@ -24,7 +24,33 @@ All the data are collected from the Internet and are not guaranteed to be accura
 | Doufunao(豆腐脑) Perference | Nominal     | {Salty, Sweet, Spicy} | Common Knowledge |
 | High-Speed Railway Network  | Graph       | /                     | Baidu |
 
+
+
 ## Methods
+
+### Oridinal Numerical Data
+
+Bar chart for each single dimension's distribution
+
+Scatterplot to identify correlation
+
+### Nominal Data
+
+Piechart for ordinal data
+
+### View 1: Graph-Based Visualization
+
+Place on map, link with highspeed railway network.
+
+use color to mark preference.
+
+Can show data: Chinese Name, English Name, Location, Area, Population, Zongzi Perference, Dofunao Perference
+
+### View 2: Brush and Link Based Interaction
+
+Brush and Link for analysis of the following:
+
+1. GDP Per capita, Income, LIfe Expectancy, Salt Intake, Hypertension Incidence
 
 
 
@@ -32,4 +58,5 @@ All the data are collected from the Internet and are not guaranteed to be accura
 
 1. Hipgrave, David B., et al. "Salt and sodium intake in China." *Jama* 315.7 (2016): 703-705.
 2. Stevens, Stanley Smith. "On the theory of scales of measurement." (1946): 677-680.
+3. Schulz, H-J., and Heidrun Schumann. "Visualizing graphs-a generalized view." *Information Visualization, 2006. IV 2006. Tenth International Conference on*. IEEE, 2006.
 
