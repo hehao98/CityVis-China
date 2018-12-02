@@ -1,21 +1,13 @@
 div {
-    text-align: left;/* div 内元素靠左对齐 */
+    text-align: left;
 }
 
-div.selectors, div.axis_selector, div.headline, div#svgContainer {
-    text-align: left;/* div 内元素居中 */
-}
-/*“标签名+类名”选择器：选中“带有某个类名”的“某些标签”
-不同选择器之间用逗号隔开，从而应用同一个CSS规则
-CSS中，选择条件越多，则优先级越高。“div + 类名”的规则优先级高于“div”的规则，并覆盖后者 */
-
-div.axis_selector {
-    display: inline;
+div.headline, div#ScatterplotContainer, div.selectors {
+    text-align: center;
 }
 
 svg {
     border: solid #ccc 4px;       /* svg 边框 */
-    margin-top: 20px;               /* 顶部边距 */
     overflow: visible;
 }
 
@@ -23,32 +15,126 @@ g {
     cursor: pointer;                    /* 设置光标样式 */
 }
 
-.PlotCircle {
+div.grid-container#global-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 70% 30%;
+}
+
+div.grid-item#sidepanel {
+    position: fixed;
+    right: 10px;
+    width: 30%;
+}
+
+/* --------------- 散点图 Start ---------------- */
+div.grid-container #scatterplot-mat {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+}
+
+div#ScatterplotContainer .common {
     fill: #a1d99b;
-    stroke: #a1d99b;
+    stroke: #000000;
     stroke-width: 1;
 }
 
-/* :hover 称为“伪类”，表示鼠标悬停于上方的元素 */
-/* 选择器中间的空格表示“父子关系”：“父元素选择器 子元素选择器” */
-/* 此处的意思即：所有在 “dataPoint:hover”类底下的、类别为“.PlotCircle”的元素*/
-.dataPoint:hover .PlotCircle {
+div#ScatterplotContainer .brushed {
+    fill: #FF6699;
+    stroke: #000000;
+    stroke-width: 1;
+}
+
+div#ScatterplotContainer .dataPoint:hover .brushed .common {
     fill: #666;
     stroke: #666;
 }
 
-.foreground {
+div#ScatterplotContainer .foreground {
     fill: #fff;
     stroke: none;
 }
 
-.dataAxis {
+div#ScatterplotContainer .dataAxis {
     cursor: default;
 }
 
-.dataAxis line, .dataAxis path{
+div#ScatterplotContainer .dataAxis line, div#ScatterplotContainer .dataAxis path{
     fill: none;
     stroke: #ccc;
-    stroke-width: 3px;
+    stroke-width: 2px;
     shape-rendering: crispEdges;
 }
+
+div#ScatterplotContainer .dataAxis text {
+    font: sans-serif;
+    font-size: 70%;
+}
+
+div#ScatterplotContainer .extent {
+  fill: #000;
+  fill-opacity: .125;
+  stroke: #fff;
+}
+/* --------------- 散点图 End ---------------- */
+
+/* --------------- 平行坐标 Start ---------------- */
+div#ParallelCoordinateContainer .foreground path.common {
+  stroke: #a1d99b;
+  fill: none;
+  stroke-opacity: .5;
+  stroke-width: 2px;
+}
+
+div#ParallelCoordinateContainer .foreground path.brushed {
+  stroke: #FF6699;
+  fill: none;
+  stroke-opacity: .5;
+  stroke-width: 4px;
+}
+
+div#ParallelCoordinateContainer .legend {
+  font-size: 18px;
+  font-style: oblique;
+}
+
+div#ParallelCoordinateContainer .legend line {
+  stroke-width: 2px;
+}
+
+div#ParallelCoordinateContainer .brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+div#ParallelCoordinateContainer .axis line, .axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+div#ParallelCoordinateContainer .axis text {
+  text-shadow: 0 1px 0 #fff;
+  cursor: move;
+}
+
+div#ParallelCoordinateContainer .extent {
+  fill: #000;
+  fill-opacity: .125;
+  stroke: #fff;
+}
+/* --------------- 平行坐标 End ---------------- */
+
+/* --------------- 图可视化 Start ---------------- */
+#GraphContainer .link {
+  stroke: #ccc;
+}
+
+#GraphContainer .node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+}
+/* --------------- 图可视化 End ---------------- */

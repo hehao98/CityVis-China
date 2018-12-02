@@ -10,29 +10,123 @@
         <h1>City Data Visualization</h1>
     </div>
 
-    <div class="subtitle">
-        <h2>1. Individual Scatterplots for Two Numerical Data Dimensions</h2>
-    </div>
-    <div class="selectors">
-        <div class="axis_selector">
-            Choose x axis: 
-            <select id="x_axis"><!--下拉栏组件，用于选择 x 轴-->
-            </select>
-        </div>
-        <div class="axis_selector">
-            Choose y axis: 
-            <select id="y_axis"><!--下拉栏组件，用于选择 y 轴-->
-            </select>
-        </div>
-    </div>
+    <div class="grid-container" id="global-grid">
+        <div class="grid-item" id="panel">
+            <h2>1. Individual Scatterplots for Two Arbitary Numerical Data Dimensions</h2>
+            <!--四个Scatterplot-->
+            <div class="grid-container" id="scatterplot-mat">
+                <div class="grid-item" id="scatterplot">
+                    <div class="selectors">
+                        <div class="axis_selector">
+                            Choose x axis: 
+                            <select id="x_axis"><!--下拉栏组件，用于选择 x 轴-->
+                            </select>
+                        </div>
+                        <div class="axis_selector">
+                            Choose y axis: 
+                            <select id="y_axis"><!--下拉栏组件，用于选择 y 轴-->
+                            </select>
+                        </div>
+                    </div>
 
-    <div id="ScatterplotContainer">
-        <svg id="ScatterplotSVG">
-        </svg>
+                    <div id="ScatterplotContainer">
+                        <svg id="ScatterplotSVG">
+                        </svg>
+                    </div>
+                </div>
+                <div class="grid-item" id="scatterplot">
+                    <div class="selectors2">
+                        <div class="axis_selector2">
+                            Choose x axis: 
+                            <select id="x_axis"><!--下拉栏组件，用于选择 x 轴-->
+                            </select>
+                        </div>
+                        <div class="axis_selector2">
+                            Choose y axis: 
+                            <select id="y_axis"><!--下拉栏组件，用于选择 y 轴-->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="ScatterplotContainer">
+                        <svg id="ScatterplotSVG2">
+                        </svg>
+                    </div>
+                </div>
+                <div class="grid-item" id="scatterplot">
+                    <div class="selectors3">
+                        <div class="axis_selector3">
+                            Choose x axis: 
+                            <select id="x_axis"><!--下拉栏组件，用于选择 x 轴-->
+                            </select>
+                        </div>
+                        <div class="axis_selector3">
+                            Choose y axis: 
+                            <select id="y_axis"><!--下拉栏组件，用于选择 y 轴-->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="ScatterplotContainer">
+                        <svg id="ScatterplotSVG3">
+                        </svg>
+                    </div>
+                </div>
+                <div class="grid-item" id="scatterplot">
+                    <div class="selectors4">
+                        <div class="axis_selector4">
+                            Choose x axis: 
+                            <select id="x_axis"><!--下拉栏组件，用于选择 x 轴-->
+                            </select>
+                        </div>
+                        <div class="axis_selector4">
+                            Choose y axis: 
+                            <select id="y_axis"><!--下拉栏组件，用于选择 y 轴-->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="ScatterplotContainer">
+                        <svg id="ScatterplotSVG4">
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <h2>2. Parallel Coordinates for Visualization of Individual Averages in Different Cities</h2>
+            <div id="ParallelCoordinateContainer">
+                
+            </div>
+
+            <h2>3. A Graph Based Visualization</h2>
+            <div id="GraphContainer">
+            </div>
+        </div>
+
+        <div class="grid-item" id="sidepanel">
+            <h2>Choose City of Interest</h2>
+            <div id="city-selections">
+
+            </div>
+            <h2>Settings</h2>
+            <input type="checkbox" id="ForceLayoutCheckbox" checked="true">Use Force Layout on Graph</input>
+            <br>
+            Choose Color Mapping: 
+            <select id="color-selector"><!--下拉栏组件，用于选择 x 轴-->
+                <option value="1">Population Density</option>
+                <option value="2">Doufunao</option>
+                <option value="3">Zongzi</option>
+            </select>
+            <br>
+            Red for spicy, blue for salty and green for sweet.
+            <br>
+        </div>
     </div>
 
     <script type="text/javascript" src="js/libs/jquery/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/libs/d3/d3.min.js"></script>
     <script type="text/javascript" src="js/libs/d3/d3-tip.js"></script>
-    <script type="text/javascript" src="js/myvis.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/vis.js"></script>
+
     <!--注意引用库文件的顺序：如果 库A 依赖于 库B，则必须先加载 B 再加载 A，否则会出错-->

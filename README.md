@@ -8,7 +8,7 @@ Run `node.js` server in `Web/` directory, then access `http://localhost:8080/cli
 
 ## Dataset
 
-All the data are collected from the Internet and are not guaranteed to be accurate. All available data types are summarized in the following table. For raw data, see `data.csv` in project root.
+All the data are collected from the Internet and are not guaranteed to be accurate. All available data types are summarized in the following table. For raw data, see `City.csv` in project root.
 
 | Data                        | Type        | Metric                | Source           |
 | --------------------------- | ----------- | --------------------- | ---------------- |
@@ -32,16 +32,6 @@ All the data are collected from the Internet and are not guaranteed to be accura
 
 ## Methods
 
-### Oridinal Numerical Data
-
-Bar chart for each single dimension's distribution
-
-Scatterplot to identify correlation
-
-### Nominal Data
-
-Piechart for ordinal data
-
 ### View 1: Graph-Based Visualization
 
 Place on map, link with highspeed railway network.
@@ -56,7 +46,18 @@ Brush and Link for analysis of the following:
 
 1. GDP Per capita, Income, LIfe Expectancy, Salt Intake, Hypertension Incidence
 
+## Example Visualization
 
+### 4 Individual Scatterplots
+
+1. LifeExpectancy, Income
+2. Income, GDP_per_Capita
+3. Income, Hypertension
+4. Income, Salt
+
+City of Interest: Shanghai, Hangzhou, Suzhou, Nanjing, Wuxi
+
+![](example.png)
 
 ## References
 
