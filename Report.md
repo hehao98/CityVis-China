@@ -1,10 +1,6 @@
-# CityVis-China
+# A_02 Report
 
-This repository contains an information visualization of 20 major cities in China, originally as a cource project for [Data Visualization](http://vis.pku.edu.cn/wiki/doku.php?id=public_course:visclass_f18:assignment:start), Fall 2018 in Peking University.
-
-## Run
-
-Run `node.js` server in `Web/` directory, then access `http://localhost:8080/client/index.html` using your browser. The URL might change depending on your server settings.
+何昊 1600012742
 
 ## Dataset
 
